@@ -1,5 +1,8 @@
 const { program } = require('commander');
 const { prompt } = require('inquirer')
+
+const { addTask } = require('./controllers/taskControllers')
+
 program.version('0.0.1').description('A command line tool for managing Tasks');
 
 program.command('save ').action( async () => {
@@ -15,6 +18,6 @@ program.command('save ').action( async () => {
             name: 'description'
         }
     ])
-    console.log(answer)
+    addTask(answer)
 });
 program.parse(process.argv);
