@@ -18,8 +18,14 @@ const ListTask = async () => {
     await connection.close()
     process.exit(0)
 }
+const DeleteTask = async (_id) => {
+    await Task.findByIdAndDelete(_id)
+    console.log(`Delete: ${_id}`)
+    await connection.close()
+}
 
 module.exports = {
     addTask,
-    ListTask
+    ListTask,
+    DeleteTask
 }
