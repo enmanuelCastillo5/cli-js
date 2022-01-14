@@ -1,7 +1,7 @@
 const { connect, connection } = require('mongoose')
-
+require('./config')
 const connectDB = async () => {
-    await connect('mongodb://localhost/taskcli')
+    await connect(process.env.StringDB)
 }
 
 connection.on('error', err => console.log(err))

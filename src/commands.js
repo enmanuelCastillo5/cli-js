@@ -18,8 +18,7 @@ const taskQuestions = [
     }
 ]
 
-
-program.command('save ').alias('s').action( async () => {
+program.command('new ').alias('n').action( async () => {
    const answer = await prompt(taskQuestions)
     addTask(answer)
 });

@@ -1,7 +1,6 @@
 const { connection } = require('../db')
 const Task = require('../models/Task')
 
-
 const addTask = async (task) => {
     await Task.create(task)
     console.log('Task was created')
@@ -29,6 +28,9 @@ const findTask = async (text) => {
 
 const ListTask = async () => {
     const tasks = await Task.find().lean()
+    if(tasks.length == 0){
+        console.log('********************\n  not found Tasks :(  \n********************')
+    }
     console.table(tasks.map(task => ({
         _id: task._id.toString(),
         title: task.title,
